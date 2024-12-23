@@ -24,9 +24,7 @@
     [ViewApper setFrame:[[UIScreen mainScreen] bounds]];
     
     [self.navigationController.view addSubview:ViewApper];
-    
-    // [self.view addSubview:ViewApper];
-    
+        
     SWRevealViewController *revealViewController = self.revealViewController;
     if ( revealViewController )
     {

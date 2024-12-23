@@ -110,8 +110,6 @@
 		76F7002A1B52D3A000055730 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F700291B52D3A000055730 /* QuartzCore.framework */; };
 		76F7002C1B52D3AF00055730 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F7002B1B52D3AF00055730 /* SystemConfiguration.framework */; };
 		76F7002E1B52D3B900055730 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F7002D1B52D3B900055730 /* UIKit.framework */; };
-		76F700511B53E97F00055730 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F700501B53E97F00055730 /* libsqlite3.0.dylib */; };
-		76F700531B53E98600055730 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F700521B53E98600055730 /* libsqlite3.dylib */; };
 		76F700551B53ECD400055730 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F700541B53ECD400055730 /* MediaPlayer.framework */; };
 		76F700731B5402F700055730 /* comments_photo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 76F700631B5402F700055730 /* comments_photo.jpg */; };
 		76F700741B5402F700055730 /* bookmark_photo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 76F700641B5402F700055730 /* bookmark_photo.jpg */; };
@@ -147,6 +145,8 @@
 			isa = PBXBuildRule;
 			compilerSpec = com.apple.compilers.proxy.script;
 			fileType = folder.iconset;
+			inputFiles = (
+			);
 			isEditable = 1;
 			outputFiles = (
 			);
@@ -378,8 +378,6 @@
 				76F700181B52D33600055730 /* CoreFoundation.framework in Frameworks */,
 				76F700161B52D32D00055730 /* CoreText.framework in Frameworks */,
 				76F700141B52D32300055730 /* MobileCoreServices.framework in Frameworks */,
-				76F700531B53E98600055730 /* libsqlite3.dylib in Frameworks */,
-				76F700511B53E97F00055730 /* libsqlite3.0.dylib in Frameworks */,
 				76F700241B52D38400055730 /* CoreData.framework in Frameworks */,
 				3C50EB4CB8B2CF606BF78B64 /* libPods-AppsAgronomo.a in Frameworks */,
 			);
@@ -431,7 +429,7 @@
 			name = Sobre;
 			sourceTree = "<group>";
 		};
-		764B84241D29CFE900DBBE15 /* EdiçõesAntigas */ = {
+		764B84241D29CFE900DBBE15 /* EdiçõesAntigas */ = {
 			isa = PBXGroup;
 			children = (
 				76DF3B561D35C3A700ABECDE /* EdicoesCollectionVC.h */,
@@ -552,7 +550,7 @@
 				76D7C20D1B7A971D00F312CB /* UltimasNoticas */,
 				7695A5131D26C5670097C001 /* NoticiasPorCategoria */,
 				76B82D5A1D24C51F008CB507 /* EdicaoAtual */,
-				764B84241D29CFE900DBBE15 /* EdiçõesAntigas */,
+				764B84241D29CFE900DBBE15 /* EdiçõesAntigas */,
 				7646D4C11DEDDE8A002197FB /* Sobre */,
 			);
 			name = Modulos;
@@ -922,7 +920,6 @@
 				76F7FFBE1B52D0AC00055730 /* Sources */,
 				76F7FFBF1B52D0AC00055730 /* Frameworks */,
 				76F7FFC01B52D0AC00055730 /* Resources */,
-				C676EE42D5E5D361AB6F5865 /* [CP] Embed Pods Frameworks */,
 				DFC22DAF5BE38470AAA19586 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -943,8 +940,6 @@
 				76F7FFDA1B52D0AC00055730 /* Sources */,
 				76F7FFDB1B52D0AC00055730 /* Frameworks */,
 				76F7FFDC1B52D0AC00055730 /* Resources */,
-				FD144C3B9777C86F6EADB67E /* [CP] Embed Pods Frameworks */,
-				BDC9A0D230589D0926E5E51F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -999,6 +994,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				Base,
 				"pt-BR",
 			);
@@ -1104,13 +1100,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AppsAgronomoTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B66C4719B1B874A9A4D8DB9E /* [CP] Check Pods Manifest.lock */ = {
@@ -1119,43 +1118,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AppsAgronomo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		BDC9A0D230589D0926E5E51F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AppsAgronomoTests/Pods-AppsAgronomoTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C676EE42D5E5D361AB6F5865 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AppsAgronomo/Pods-AppsAgronomo-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DFC22DAF5BE38470AAA19586 /* [CP] Copy Pods Resources */ = {
@@ -1164,28 +1136,52 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppsAgronomo/Pods-AppsAgronomo-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MWPhotoBrowser/MWPhotoBrowser.bundle",
+				"${PODS_ROOT}/TSMessages/Pod/Assets/NotificationBackgroundError.png",
+				"${PODS_ROOT}/TSMessages/Pod/Assets/NotificationBackgroundError@2x.png",
+				"${PODS_ROOT}/TSMessages/Pod/Assets/NotificationBackgroundErrorIcon.png",
+				"${PODS_ROOT}/TSMessages/Pod/Assets/NotificationBackgroundErrorIcon@2x.png",
+				"${PODS_ROOT}/TSMessages/Pod/Assets/NotificationBackgroundMessage.png",
+				"${PODS_ROOT}/TSMessages/Pod/Assets/NotificationBackgroundMessage@2x.png",
+				"${PODS_ROOT}/TSMessages/Pod/Assets/NotificationBackgroundSuccess.png",
+				"${PODS_ROOT}/TSMessages/Pod/Assets/NotificationBackgroundSuccess@2x.png",
+				"${PODS_ROOT}/TSMessages/Pod/Assets/NotificationBackgroundSuccessIcon.png",
+				"${PODS_ROOT}/TSMessages/Pod/Assets/NotificationBackgroundSuccessIcon@2x.png",
+				"${PODS_ROOT}/TSMessages/Pod/Assets/NotificationBackgroundWarning.png",
+				"${PODS_ROOT}/TSMessages/Pod/Assets/NotificationBackgroundWarning@2x.png",
+				"${PODS_ROOT}/TSMessages/Pod/Assets/NotificationBackgroundWarningIcon.png",
+				"${PODS_ROOT}/TSMessages/Pod/Assets/NotificationBackgroundWarningIcon@2x.png",
+				"${PODS_ROOT}/TSMessages/Pod/Assets/NotificationButtonBackground.png",
+				"${PODS_ROOT}/TSMessages/Pod/Assets/NotificationButtonBackground@2x.png",
+				"${PODS_ROOT}/TSMessages/Pod/Assets/TSMessagesDefaultDesign.json",
+				"${PODS_ROOT}/youtube-ios-player-helper/youtube-ios-player-helper/Assets.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MWPhotoBrowser.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationBackgroundError.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationBackgroundError@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationBackgroundErrorIcon.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationBackgroundErrorIcon@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationBackgroundMessage.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationBackgroundMessage@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationBackgroundSuccess.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationBackgroundSuccess@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationBackgroundSuccessIcon.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationBackgroundSuccessIcon@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationBackgroundWarning.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationBackgroundWarning@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationBackgroundWarningIcon.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationBackgroundWarningIcon@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationButtonBackground.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationButtonBackground@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TSMessagesDefaultDesign.json",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Assets.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AppsAgronomo/Pods-AppsAgronomo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FD144C3B9777C86F6EADB67E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AppsAgronomoTests/Pods-AppsAgronomoTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppsAgronomo/Pods-AppsAgronomo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1397,7 +1393,7 @@
 					"\"${PODS_ROOT}/GoogleUtilities/Frameworks\"",
 				);
 				INFOPLIST_FILE = AppsAgronomo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = .br.com.revide.app;
 				PRODUCT_NAME = AppsAgronomo;
@@ -1430,7 +1426,7 @@
 					"\"${PODS_ROOT}/GoogleUtilities/Frameworks\"",
 				);
 				INFOPLIST_FILE = AppsAgronomo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = .br.com.revide.app;
 				PRODUCT_NAME = AppsAgronomo;

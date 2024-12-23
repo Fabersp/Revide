@@ -50,18 +50,14 @@
 
 -(void) Loading:(NSURL *) urlLista {
     
-    
     NSURLSession * session = [NSURLSession sharedSession];
-    
     NSURLSessionDownloadTask * task =
     [session downloadTaskWithURL:urlLista completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
         NSData * jsonData = [[NSData alloc] initWithContentsOfURL:location];
         lista = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            
             [self.tableView reloadData];
-            
         });
     }];
     [task resume];
@@ -69,43 +65,30 @@
 -(void) LoadingHorarios:(NSURL *) urlLista {
     
     if (internetActive) {
-        
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
         hud.dimBackground = YES;
 
         NSURLSession * session = [NSURLSession sharedSession];
-        
         NSURLSessionDownloadTask * task =
         [session downloadTaskWithURL:urlLista completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
             NSData * jsonData = [[NSData alloc] initWithContentsOfURL:location];
             horarios = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                
                 NSString * Urlfotos = [NSString stringWithFormat:@"http://www.revide.com.br/api_revide/lista_galeria.php?id=%@", idView];
-                
                 [self LoadingFotos:[NSURL URLWithString:Urlfotos]];
-                
-                
                 NSString * UrlMontadada = [NSString stringWithFormat:@"http://www.revide.com.br/api_revide/detalhe_gastronomia.php?id=%@", idView];
-                
                 [self Loading:[NSURL URLWithString:UrlMontadada]];
-                
                 hud.hidden = YES;
-                
-                
             });
-            
         }];
         [task resume];
     }
-    
 }
 
 -(void) LoadingFotos:(NSURL *) urlLista {
     
     if (internetActive) {
-        
         NSURLSession * session = [NSURLSession sharedSession];
         
         NSURLSessionDownloadTask * task =
@@ -114,18 +97,12 @@
             fotos = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                
                 NSLog(@"%@", fotos);
-                
             });
-            
         }];
         [task resume];
     }
-    
 }
-
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -263,7 +240,6 @@
 - (void)btnTelefoneClick:(UIButton *)sender {
     
     NSString * NumTelefone = [NSString stringWithFormat:@"tel:%@",[[lista objectAtIndex:sender.tag] objectForKey:@"telefone"]];
-    
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:NumTelefone]];
 }
 

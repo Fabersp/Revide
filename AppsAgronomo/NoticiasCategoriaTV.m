@@ -236,29 +236,6 @@
     }];
     [task resume];
     
-    
-    NSURLSession * session = [NSURLSession sharedSession];
-    
-    NSURLSessionDownloadTask * task =
-    [session downloadTaskWithURL:url completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
-        NSData * jsonData = [[NSData alloc] initWithContentsOfURL:location];
-        noticiasRecentes = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [refreshControl endRefreshing];
-            
-            [self.tableView reloadData];
-            [self SetarEdicoes_Default];
-            
-            hud.hidden = YES;
-            
-        });
-    }];
-    [task resume];
-
-    
-    
-    
     cell.edCategoria.text       = [NSString stringWithFormat:@" %@ " , [[noticiasRecentes objectAtIndex:indexPath.row] objectForKey:@"categoria"]];
     cell.edDetalheNoticias.text = [[noticiasRecentes objectAtIndex:indexPath.row] objectForKey:@"titulo"];
     
