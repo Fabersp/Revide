@@ -99,8 +99,8 @@ MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithPhotos:@[photo1, photo
 
 ## 👨‍💻 **Author**  
 - **Fabricio Aguiar de Padua**  
-- **LinkedIn:** [www.linkedin.com/fabricio-padua](#)  
-- **Email:** [fabricio_0505_@hotmail.com](#)  
+- **LinkedIn:** www.linkedin.com/fabricio-padua  
+- **Email:** fabricio_0505_@hotmail.com
 
 ---
 
